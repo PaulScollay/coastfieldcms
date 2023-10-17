@@ -1,0 +1,85 @@
+import path from 'path'
+
+import { payloadCloud } from '@payloadcms/plugin-cloud'
+import { mongooseAdapter } from '@payloadcms/db-mongodb'
+import { webpackBundler } from '@payloadcms/bundler-webpack'
+// import { slateEditor } from '@payloadcms/richtext-slate'
+import { lexicalEditor } from '@payloadcms/richtext-lexical'
+import { buildConfig } from 'payload/config'
+
+// Storage Adaptor
+import { adapterAZ } from './adaptors/storage/BlobStorage'
+import { cloudStorage } from '@payloadcms/plugin-cloud-storage';
+
+import Users from './collections/Users'
+
+//Coastfield Specific
+import { Media } from './collections/Media';
+import { Pages } from './collections/Pages';
+
+import { Regions } from './collections/Regions/Regions'
+import { Locations } from './collections/Locations/Locations'
+import { LocationTypes } from './collections/Locations/LocationType'
+import { LocationFeatures } from './collections/Locations/LocationFeatures'
+import { Venues } from './collections/Venues/Venus'
+import { VenueTypes } from './collections/Venues/VenueType'
+import { SelfCateringUnits } from './collections/SelfCatering/SelfCateringUnits'
+import { SelfCateringUnitTypes } from './collections/SelfCatering/SelfCateringUnitTypes'
+import { SelfCateringFeatures } from './collections/SelfCatering/SelfCateringFeatures'
+
+
+export default buildConfig({
+  admin: {
+    user: Users.slug,
+    bundler: webpackBundler(),
+    webpack(config) {
+      const emptyModulePath = path.resolve(__dirname, './adaptors/storage/mockModule.ts');
+  
+      return {
+         ...config, 
+         resolve: {
+           ...config.resolve,
+            alias: {
+              ...config.resolve.alias,
+              fs: emptyModulePath, 
+              stream: emptyModulePath, 
+            }
+         }
+      }
+    }
+  },
+  editor: lexicalEditor({}),
+  collections: [
+    Users,
+    Media,
+    Pages,
+    Regions,
+    Locations,
+    LocationTypes,
+    LocationFeatures,
+    Venues,
+    VenueTypes,
+    SelfCateringUnits,
+    SelfCateringUnitTypes,
+    SelfCateringFeatures,
+  ],
+  typescript: {
+    outputFile: path.resolve(__dirname, 'payload-types.ts'),
+  },
+  graphQL: {
+    schemaOutputFile: path.resolve(__dirname, 'generated-schema.graphql'),
+  },
+  plugins: [
+      payloadCloud(),
+      cloudStorage({
+        collections: {
+          media: {
+            adapter: adapterAZ
+          },
+        },
+      }),
+    ],
+  db: mongooseAdapter({
+    url: process.env.DATABASE_URI,
+  }),
+})
