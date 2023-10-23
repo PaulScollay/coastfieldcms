@@ -208,7 +208,7 @@ export const Stock: CollectionConfig = {
             
                           },
                         ],
-                    },
+                },
             ],
         },
         {
