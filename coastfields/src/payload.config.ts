@@ -37,6 +37,7 @@ import { StockFinanceTerm } from './collections/Stock/StockFinanceTerm'
 import { StockFeatures } from './collections/Stock/StockFeatures'
 import { Attractions } from './collections/Attractions'
 import { Events } from './collections/Events'
+import { Promotions } from './collections/Promotions'
 
 export default buildConfig({
   admin: {
@@ -82,7 +83,8 @@ export default buildConfig({
     StockFinanceTerm,
     StockFeatures,
     Attractions,
-    Events
+    Events,
+    Promotions
   ],
   typescript: {
     outputFile: path.resolve(__dirname, 'payload-types.ts'),
