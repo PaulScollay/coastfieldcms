@@ -94,7 +94,7 @@ export const Stock: CollectionConfig = {
                                     label: 'Guide Price',
                                     type: 'number',
                                     admin: {
-                                        width: '20%',
+                                        width: '16%',
                                         step: 1,
                                       },
                                 },
@@ -103,7 +103,7 @@ export const Stock: CollectionConfig = {
                                     label: 'Retail Price',
                                     type: 'number',
                                     admin: {
-                                        width: '20%',
+                                        width: '16%',
                                         step: 1,
                                       },
                                 },
@@ -112,7 +112,7 @@ export const Stock: CollectionConfig = {
                                     label: 'Was Price',
                                     type: 'number',
                                     admin: {
-                                        width: '20%',
+                                        width: '16%',
                                         step: 1,
                                       },
                                 },
@@ -121,7 +121,7 @@ export const Stock: CollectionConfig = {
                                     label: 'Deposit',
                                     type: 'number',
                                     admin: {
-                                        width: '20%',
+                                        width: '16%',
                                         step: 1,
                                       },
                                 },
@@ -131,23 +131,54 @@ export const Stock: CollectionConfig = {
                                     type: "relationship",
                                     relationTo: "stock-finance-term",
                                     admin: {
-                                        width: '20%',
+                                        width: '16%',
                                       },
                                   },
+                                  {
+                                    name: 'Year', // required
+                                    type: 'select', // required
+                                    admin: {
+                                      isClearable: true,
+                                      isSortable: true, // use mouse to drag and drop different values, and sort them according to your choice
+                                      width: '16%',
+                                    },
+                                    options: [
+                                      {
+                                        label: '2020',
+                                        value: '2020',
+                                      },
+                                      {
+                                        label: '2021',
+                                        value: '2021',
+                                      },
+                                      {
+                                        label: '2022',
+                                        value: '2022',
+                                      },
+                                      {
+                                        label: '2023',
+                                        value: '2023',
+                                      },
+                                      {
+                                        label: '2024',
+                                        value: '2024',
+                                      },
+                                    ],
+                                  },
+          
                                 {
                                     name: 'POA', 
                                     type: 'checkbox', 
-                                    label: 'Price On Application',
+                                    label: 'POA',
                                     defaultValue: false,
                                     admin: {
-                                        width: '20%',
+                                        width: '16%',
                                       },
                                   },
 
                             ],
                           }, 
-                          
-                          
+                        
                         ]
                     },
                 ],
@@ -411,17 +442,33 @@ export const Stock: CollectionConfig = {
           ],
         },
         {
-          name: "tabFour",
-          label: "Reviews", 
-          interfaceName: "TabFour", // optional (`name` must be present)
-          fields: [
-            {
-                name: 'reviews', 
-                label: 'Reviews',
-                type: 'textarea', 
-              },
-          ],
-        },
+            name: "searchTags",
+            label: "Search Tags", 
+            interfaceName: "sku", // optional (`name` must be present)
+            fields: [
+              {
+                  name: 'searchTags', // required
+                  type: 'array', // required
+                  label: 'Tags',
+                  labels: {
+                      singular: 'Tag',
+                      plural: 'Tags',
+                    },
+                    fields: [
+                      // required
+                      {
+                        name: 'name',
+                        type: 'text',
+                        validate: (val) => {
+                            if (!val) return true;
+                            const pattern = /^[a-z0-9]+(?:-[a-z0-9]+)*$/ig;
+                            return pattern.test(val.toString()) || 'Invalid Search Tag : No spaces';
+                            },
+                      },
+                  ]
+                },
+            ],
+          },
       ],
     },
   ],
