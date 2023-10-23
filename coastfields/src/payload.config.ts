@@ -26,7 +26,15 @@ import { VenueTypes } from './collections/Venues/VenueType'
 import { SelfCateringUnits } from './collections/SelfCatering/SelfCateringUnits'
 import { SelfCateringUnitTypes } from './collections/SelfCatering/SelfCateringUnitTypes'
 import { SelfCateringFeatures } from './collections/SelfCatering/SelfCateringFeatures'
-
+import { Touring } from './collections/Touring/Touring'  
+import { TouringFeatures } from './collections/Touring/TouringFeatures'
+import { TouringSuitability } from './collections/Touring/TouringSuitability'
+import { TouringUnitTypes } from './collections/Touring/TouringUnitTypes'
+import { TouringTags } from './collections/Touring/TouringTags'
+import { Stock } from './collections/Stock/Stock'
+import { StockAvailability } from './collections/Stock/StockAvailability'
+import { StockFinanceTerm } from './collections/Stock/StockFinanceTerm'
+import { StockFeatures } from './collections/Stock/StockFeatures'
 
 export default buildConfig({
   admin: {
@@ -62,6 +70,15 @@ export default buildConfig({
     SelfCateringUnits,
     SelfCateringUnitTypes,
     SelfCateringFeatures,
+    Touring,
+    TouringFeatures,
+    TouringSuitability,
+    TouringUnitTypes,
+    TouringTags,
+    Stock,
+    StockAvailability,
+    StockFinanceTerm,
+    StockFeatures
   ],
   typescript: {
     outputFile: path.resolve(__dirname, 'payload-types.ts'),

@@ -6,12 +6,15 @@ import {
   lexicalEditor
 } from '@payloadcms/richtext-lexical'
 import { Banner } from '../blocks/banner'
+import { TwoColumnImage } from '../blocks/twoColumnImage'
+import { ThreeColumnImage } from '../blocks/threeColumnImage'
 // import { CallToAction } from '../blocks/CallToAction'
 
 export const Pages: CollectionConfig = {
   slug: 'pages',
   fields: [
     {
+      label: 'label',
       name: 'content',
       type: 'richText',
       // Pass the Lexical editor here and override base settings as necessary
@@ -52,9 +55,13 @@ export const Pages: CollectionConfig = {
           }),
           // This is incredibly powerful. You can re-use your Payload blocks
           // directly in the Lexical editor as follows:
+
+          // TODO: Add One/Two/Three  Column Images + naming fo up load files!!!!!
           BlocksFeature({
             blocks: [
               Banner,
+              TwoColumnImage,
+              ThreeColumnImage,
             //   CallToAction,
             ],
           }),
