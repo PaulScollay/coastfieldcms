@@ -2,7 +2,7 @@ import { CollectionConfig } from 'payload/types';
 // import {isAdmin, isAdminOrSelf} from '../access/Access';
 
 export const SelfCateringUnitTypes: CollectionConfig = {
-  slug: 'selfcateringunittypes',
+  slug: 'SelfCateringUnitTypes',
   labels: {
     singular : 'Self Catering Unit Type',
     plural: 'Self Catering Unit Types'

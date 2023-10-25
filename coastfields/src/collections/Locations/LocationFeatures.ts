@@ -3,8 +3,8 @@ import { CollectionConfig } from 'payload/types'
 export const LocationFeatures: CollectionConfig = {
     slug: 'location-features',
     labels: {
-      singular : ' ',
-      plural: ' '
+      singular : 'Location Features',
+      plural: 'Location Features'
     }, 
     admin: {
       useAsTitle: 'name',

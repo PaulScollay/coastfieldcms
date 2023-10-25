@@ -1,7 +1,7 @@
 import { CollectionConfig } from 'payload/types';
 
 export const SelfCateringUnits: CollectionConfig = {
-  slug: 'selfcatering',
+  slug: 'SelfCateringUnit',
   labels: {
     singular : 'Self Catering Unit',
     plural: 'Self Catering Units'
@@ -38,7 +38,7 @@ export const SelfCateringUnits: CollectionConfig = {
                   {
                     name: "unitType",
                     type: "relationship",
-                    relationTo: "selfcateringunittypes",
+                    relationTo: "SelfCateringUnitTypes",
                     admin: {
                         width: '40%',
                       },
@@ -55,7 +55,7 @@ export const SelfCateringUnits: CollectionConfig = {
                   {
                     name: "unitFeatures",
                     type: "relationship",
-                    relationTo: "selfcateringfeaturess",
+                    relationTo: "SelfCateringFeatures",
                     hasMany: true,
                     admin: {
                         width: '100%',
@@ -143,7 +143,7 @@ export const SelfCateringUnits: CollectionConfig = {
             ],
         },
         {
-          name: "tabTwo",
+          name: "optionsTab",
           label: "Options & Content", 
           interfaceName: "TabTwo", // optional (`name` must be present)
           fields: [
@@ -276,7 +276,7 @@ export const SelfCateringUnits: CollectionConfig = {
           ],
         },
         {
-          name: "tabThree",
+          name: "imagesTab",
           label: "Unit Images",
           interfaceName: "TabThree", // optional (`name` must be present)
           fields: [
@@ -334,7 +334,7 @@ export const SelfCateringUnits: CollectionConfig = {
           ],
         },
         {
-          name: "tabFour",
+          name: "reviewTab",
           label: "Reviews", 
           interfaceName: "TabFour", // optional (`name` must be present)
           fields: [

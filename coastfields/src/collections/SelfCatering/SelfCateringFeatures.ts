@@ -1,7 +1,7 @@
 import { CollectionConfig } from 'payload/types'
 
 export const SelfCateringFeatures: CollectionConfig = {
-    slug: 'selfcateringfeaturess',
+    slug: 'SelfCateringFeatures',
     labels: {
       singular : 'Self Catering Features',
       plural: 'Self Catering Features'
