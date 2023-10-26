@@ -207,16 +207,16 @@ export interface SelfCateringUnit {
   longDescription: string;
   extras?: string;
   flashMessage?: string;
-  tabTwo: {
+  optionsTab: {
     selfCateringOptions?: Meta;
     selfCateringContent?: SelfCateringContent;
   };
-  tabThree: {
+  imagesTab: {
     featuredImage: string | Media;
     floorPlan?: string | Media;
     slider?: CardSlider;
   };
-  tabFour: {
+  reviewTab: {
     reviews?: string;
   };
   updatedAt: string;
