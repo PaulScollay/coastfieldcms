@@ -1,5 +1,25 @@
 import { CollectionConfig } from 'payload/types';
 
+export const colours: CollectionConfig = {
+  slug: 'colours',
+  admin: {
+    useAsTitle: 'name',
+    defaultColumns: ['name'],
+  },
+  
+  access: {
+    read: () => true,
+  },
+  fields: [
+    {
+      name: 'name',
+      type: 'text',
+      label: 'Colours',
+    },
+  ],
+};
+
+
 export const SelfCateringUnits: CollectionConfig = {
   slug: 'SelfCateringUnit',
   labels: {
@@ -15,6 +35,13 @@ export const SelfCateringUnits: CollectionConfig = {
     read: () => true,
   },
   fields: [
+    {
+      name: 'colourSelect', 
+      label: 'Colours',
+      type: 'relationship', 
+      hasMany: false,
+      relationTo: 'colours', 
+  },
     {
       type: "tabs", // required
       tabs: [
@@ -39,10 +66,15 @@ export const SelfCateringUnits: CollectionConfig = {
                     name: "unitType",
                     type: "relationship",
                     relationTo: "SelfCateringUnitTypes",
+                    hasMany: false,
                     admin: {
                         width: '40%',
                       },
                   },
+
+
+
+
                   {
                     name: "locations",
                     type: "relationship",
@@ -278,14 +310,17 @@ export const SelfCateringUnits: CollectionConfig = {
         {
           name: "imagesTab",
           label: "Unit Images",
-          interfaceName: "TabThree", // optional (`name` must be present)
           fields: [
+            {
+              name: 'name',
+              type: 'text',
+            },
             {
                 name: 'featuredImage', 
                 label: 'Featured Image',
                 type: 'upload', 
                 relationTo: 'media', 
-                required: true,
+                required: false,
             },
             {
                 name: 'floorPlan', 
@@ -316,7 +351,7 @@ export const SelfCateringUnits: CollectionConfig = {
                     name: 'image',
                     type: 'upload',
                     relationTo: 'media',
-                    required: true,
+                    required: false,
                   },
                   {
                     name: 'caption',

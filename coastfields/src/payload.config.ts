@@ -24,6 +24,7 @@ import { LocationFeatures } from './collections/Locations/LocationFeatures'
 import { Venues } from './collections/Venues/Venus'
 import { VenueTypes } from './collections/Venues/VenueType'
 import { SelfCateringUnits } from './collections/SelfCatering/SelfCateringUnits'
+import { colours } from './collections/SelfCatering/SelfCateringUnits'
 import { SelfCateringUnitTypes } from './collections/SelfCatering/SelfCateringUnitTypes'
 import { SelfCateringFeatures } from './collections/SelfCatering/SelfCateringFeatures'
 import { Touring } from './collections/Touring/Touring'  
@@ -61,6 +62,7 @@ export default buildConfig({
   },
   editor: lexicalEditor({}),
   collections: [
+    colours,
     Users,
     Media,
     Pages,

@@ -9,8 +9,11 @@ export const SelfCateringUnitTypes: CollectionConfig = {
   }, 
   admin: {
     useAsTitle: 'name',
-    defaultColumns: ['name', 'id', 'archived'],
+    //defaultColumns: ['name', 'id', 'archived'],
     group: 'Self Catering',
+  },
+  access: {
+    read: () => true,
   },
   // access: {
   //   read: isAdminOrSelf('id'),
