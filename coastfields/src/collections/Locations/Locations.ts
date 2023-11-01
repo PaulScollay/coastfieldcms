@@ -7,12 +7,18 @@ export const Locations: CollectionConfig = {
     plural: 'Locations'
   },    
   admin: {
+      livePreview: {
+        url: 'http://localhost:3001', // The URL to your front-end, this can also be a function (see below)
+      },
     useAsTitle: 'name',
     defaultColumns: ['name', 'locationType', 'contact'],
     group: 'Locations',
   },
   access: {
     read: () => true,
+    create: () => true,
+    update: () => true,
+    delete: () => true,
   },
   fields: [
     {

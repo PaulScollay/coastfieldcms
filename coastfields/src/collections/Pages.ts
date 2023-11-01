@@ -57,14 +57,14 @@ export const Pages: CollectionConfig = {
           // directly in the Lexical editor as follows:
 
           // TODO: Add One/Two/Three  Column Images + naming fo up load files!!!!!
-          BlocksFeature({
-            blocks: [
-              Banner,
-              TwoColumnImage,
-              ThreeColumnImage,
-            //   CallToAction,
-            ],
-          }),
+          // BlocksFeature({
+          //   blocks: [
+          //     Banner,
+          //     TwoColumnImage,
+          //     ThreeColumnImage,
+          //   //   CallToAction,
+          //   ],
+          // }),
         ]
       })
     }

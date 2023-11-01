@@ -1,25 +1,5 @@
 import { CollectionConfig } from 'payload/types';
 
-export const colours: CollectionConfig = {
-  slug: 'colours',
-  admin: {
-    useAsTitle: 'name',
-    defaultColumns: ['name'],
-  },
-  
-  access: {
-    read: () => true,
-  },
-  fields: [
-    {
-      name: 'name',
-      type: 'text',
-      label: 'Colours',
-    },
-  ],
-};
-
-
 export const SelfCateringUnits: CollectionConfig = {
   slug: 'SelfCateringUnit',
   labels: {
@@ -27,6 +7,9 @@ export const SelfCateringUnits: CollectionConfig = {
     plural: 'Self Catering Units'
   },   
   admin: {
+    livePreview: {
+      url: 'http://localhost:3001', // The URL to your front-end, this can also be a function (see below)
+    },
     useAsTitle: 'name',
     defaultColumns: ['name', 'locations', 'archived'],
     group: 'Self Catering',
@@ -35,13 +18,6 @@ export const SelfCateringUnits: CollectionConfig = {
     read: () => true,
   },
   fields: [
-    {
-      name: 'colourSelect', 
-      label: 'Colours',
-      type: 'relationship', 
-      hasMany: false,
-      relationTo: 'colours', 
-  },
     {
       type: "tabs", // required
       tabs: [

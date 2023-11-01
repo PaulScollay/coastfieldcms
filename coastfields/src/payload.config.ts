@@ -24,7 +24,6 @@ import { LocationFeatures } from './collections/Locations/LocationFeatures'
 import { Venues } from './collections/Venues/Venus'
 import { VenueTypes } from './collections/Venues/VenueType'
 import { SelfCateringUnits } from './collections/SelfCatering/SelfCateringUnits'
-import { colours } from './collections/SelfCatering/SelfCateringUnits'
 import { SelfCateringUnitTypes } from './collections/SelfCatering/SelfCateringUnitTypes'
 import { SelfCateringFeatures } from './collections/SelfCatering/SelfCateringFeatures'
 import { Touring } from './collections/Touring/Touring'  
@@ -42,6 +41,7 @@ import { Promotions } from './collections/Promotions'
 
 export default buildConfig({
   admin: {
+
     user: Users.slug,
     bundler: webpackBundler(),
     webpack(config) {
@@ -58,11 +58,14 @@ export default buildConfig({
             }
          }
       }
-    }
+    },
+    livePreview: {
+      url: 'http://localhost:3001', // The URL to your front-end, this can also be a function (see below)
+      collections: ['SelfCateringUnits'], // The collections to enable Live Preview on (globals are also possible)
+    },
   },
   editor: lexicalEditor({}),
   collections: [
-    colours,
     Users,
     Media,
     Pages,

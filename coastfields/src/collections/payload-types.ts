@@ -195,7 +195,6 @@ export interface QuoteBlock {
 }
 export interface SelfCateringUnit {
   id: string;
-  NoTab?: string | Media;
   name: string;
   unitType?: string | SelfCateringUnitType;
   locations?: string[] | Location[];
@@ -475,6 +474,6 @@ export interface PayloadMigration {
 }
 
 
-// declare module 'payload' {
-//   export interface GeneratedTypes extends Config {}
-// }
+declare module 'payload' {
+  export interface GeneratedTypes extends Config {}
+}
